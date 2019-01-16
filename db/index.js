@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
-const sampleUsers = require('./seedData.js')
+const sampleUsers = require('./seedData.js');
 
-const sequelize = new Sequelize('twitchchat', 'root', 'WallacePennyToby', {
+const sequelize = new Sequelize('twitchchat', 'root', '', {
   host: 'localhost',
   dialect: 'mysql',
   operatorsAliases: false,
@@ -38,11 +38,11 @@ const User = sequelize.define('users', {
 
 
 
-User.bulkCreate(sampleUsers()).then(() => {
-  return User.findAll();
-}).then(users => {
-  console.log(users)
-});
+// User.bulkCreate(sampleUsers()).then(() => {
+//   return User.findAll();
+// }).then(users => {
+//   console.log(users);
+// });
 
 const Chat = sequelize.define('chats', {
   id: {
